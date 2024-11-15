@@ -5,27 +5,32 @@ import Questions from './topics.json';
 function Page() {
   const [flipped, setFlipped] = useState(Array(9).fill(true));
   const [enlarged, setEnlarged] = useState(Array(9).fill(false));
+  const [clicked, setClicked] = useState(Array(9).fill(false)); // 新增狀態來追蹤卡片是否已被點擊過
 
   const handleCardClick = (index) => {
+    if (clicked[index]) return; // 如果卡片已被點擊過，則返回
+
     const newFlipped = [...flipped];
     const newEnlarged = [...enlarged];
+    const newClicked = [...clicked]; // 複製 clicked 狀態
+
     newEnlarged[index] = !newEnlarged[index];
     if (newEnlarged[index]) {
-      newFlipped[index] = false; // Show front when enlarged
+      newFlipped[index] = false;
     } else {
-      newFlipped[index] = true; // Show back when not enlarged
+      newFlipped[index] = true;
     }
+    newClicked[index] = true; // 設置卡片為已點擊
+
     setFlipped(newFlipped);
     setEnlarged(newEnlarged);
+    setClicked(newClicked); // 更新 clicked 狀態
   };
 
   const handleClose = (index) => {
     const newEnlarged = [...enlarged];
-    const newFlipped = [...flipped];
     newEnlarged[index] = false;
-    newFlipped[index] = true; // Show back when closed
     setEnlarged(newEnlarged);
-    setFlipped(newFlipped);
   };
 
   return (
