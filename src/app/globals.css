@@ -19,7 +19,7 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: linear-gradient(to right, #c1dfe1, #f8f7f9);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,9 +45,7 @@ a {
 .center {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100%;
-  background: linear-gradient(to right, #c1dfe1, #f8f7f9);
 }
 
 .card-container {
@@ -59,15 +57,15 @@ a {
 }
 
 .card {
-  width: 200px;
-  height: 250px;
+  width: 180px;
+  aspect-ratio: 4 / 5;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  transition: transform 0.6s, width 0.6s, height 0.6s;
+  transition: transform 0.6s, width 0.6s, height 0.6s, background-color 0.3s;
   transform-style: preserve-3d;
   position: relative;
 }
@@ -77,8 +75,8 @@ a {
 }
 
 .card.enlarged {
-  width: 444px;
-  height: 555px;
+  width: 400px;
+  aspect-ratio: 4 / 5;
   animation: enlarge 0.6s forwards;
 }
 
@@ -197,8 +195,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  padding-bottom: 20px;
+  padding: 30px 0;
 }
 
 .modal {
@@ -216,6 +213,25 @@ a {
 .modal-content {
   position: relative;
 }
+
+.flip-all-back-button button{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #000000;
+  width: 80px;
+  aspect-ratio: 1 / 1;
+  border: 0;
+  border-radius: 50%;
+  margin: 10px;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.flip-all-back-button button:hover{
+  background-color: #9f9d9d;
+}
+
 
 @keyframes enlarge {
   from {
