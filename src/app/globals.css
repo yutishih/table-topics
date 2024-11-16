@@ -45,14 +45,14 @@ a {
 .center {
   display: flex;
   justify-content: center;
-  height: 100%;
+  height: auto;
 }
 
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   justify-items: center;
   align-items: center;
 }
